@@ -1,4 +1,7 @@
 <h2>Now Viewing: <%= @closet.title %></h2>
+    <% @closet.categories.each do |cat| %>
+        <%= cat.title %>
+    <% end %>
 <br>
 
 

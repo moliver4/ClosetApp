@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_003849) do
   create_table "itemcategories", force: :cascade do |t|
     t.integer "category_id"
     t.integer "item_id"
-    t.integer "closet_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_003849) do
     t.string "name"
     t.string "description"
     t.string "size"
+    t.integer "closet_id"
     t.integer "worn_count", default: 0
     t.string "condition", default: "good"
     t.datetime "created_at", precision: 6, null: false

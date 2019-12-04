@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
-    has_many :item_categories
-    has_many :items, through: :item_categories
+    has_many :itemcategories
+    has_many :items, through: :itemcategories
+
     validates :title, uniqueness: true
     validates :title, presence: true
 

@@ -7,6 +7,7 @@ class ClosetsController < ApplicationController
 
     def show
         @closet = Closet.find(params[:id])
+        session[:closet_id] = @closet.id
     end
 
     def new
@@ -14,21 +15,14 @@ class ClosetsController < ApplicationController
     end
 
     def create
-        @user = find_user
-        @closet = Closet.new(title: closet_params[:title], user_id: @user.id)
+        @closet = Closet.new(cp)
         if @closet.save 
             redirect_to closet_path(@closet)
         else
             render :new
         end
-            
     end
 
-    def edit
-    end
-
-    def update
-    end
 
     def destroy
     end
@@ -37,7 +31,13 @@ class ClosetsController < ApplicationController
     def find_user
         @user = User.find(session[:user_id])
     end
+
     def closet_params
-        params.require(:closet).permit(:title, :search, :user_id)
+        params.require(:closet).permit(:title, :search, :user_id, categories_attributes: [:title] )
+    end
+
+    def cp 
+        @user = find_user
+        closet_params[:user_id] = @user.id 
     end
 end

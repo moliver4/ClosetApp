@@ -3,7 +3,6 @@ class CreateItemcategories < ActiveRecord::Migration[6.0]
     create_table :itemcategories do |t|
       t.integer :category_id
       t.integer :item_id
-      t.integer :closet_id
 
       t.timestamps
     end

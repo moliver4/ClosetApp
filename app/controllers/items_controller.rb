@@ -7,13 +7,17 @@ class ItemsController < ApplicationController
 
     def new
         @item = Item.new
+        @user = User.find(session[:user_id])
+        @closets = @user.closets
     end
 
     def create
         @item = Item.new(item_params)
+        byebug
         if @item.save
-            redirect_to item_path(@item)
+            redirect_to @item
         else
+            puts @item.messages.full_errors
             render :new
         end
 
@@ -34,7 +38,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-        params.require(:item).permit(:name, :description, :size, :worn_count, :condition, closet_ids:[], category_ids:[], categories_attributes: [:title], :photo)
+        params.require(:item).permit(:name, :description, :size, :worn_count, :condition, :closet_id, category_ids:[])
     end
 
 end

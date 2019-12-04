@@ -1,5 +1,8 @@
+<h2>Let's Make a New Closet!</h2>
 <%= form_for @closet do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  
+    Closet Name: <%= f.text_field :title %> <br>
+    <br>
+    <br>
     <%= f.submit 'Create Closet' %>
 <% end %>

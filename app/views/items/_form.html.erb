@@ -1,0 +1,23 @@
+
+<%= form_for @item do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br>
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+    <br>
+    <%= f.label :worn_count %>
+    <%= f.text_field :worn_count %>
+    <br>
+    <%= f.label :condition %>
+    <%= f.select :condition, [ 'New','Good','Fair', 'Old' ], :prompt => 'Select One' %>
+    <br>
+    Please Select the Closet: <%= f.collection_select :closet_id, @closets, :id, :title %> <br>
+    Please Select Categories: <%= f.collection_check_boxes :category_ids, Category.all, :id, :title %> <br>
+
+    <br>
+    <%= f.submit 'Create Item' %>
+<% end %>

@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.string :size
+      t.integer :closet_id
       t.integer :worn_count, :default => 0 
       t.string :condition, :default => "good"
 
