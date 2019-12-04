@@ -7,6 +7,11 @@ class User < ApplicationRecord
     has_secure_password
     has_many :closets
 
+    validates :name, presence: true
+    validates :username, presence: true
+    validates :username, uniqueness: true
+    validates :city, presence: true
+
 
     def get_weather
         @city = self.city
@@ -23,6 +28,7 @@ class User < ApplicationRecord
         puts js
         js
     end
+    
     def current_temp
         ftemp(get_weather["main"]["temp"])
     end

@@ -1,0 +1,8 @@
+<h2> Welcome <%= @user.name %>! Here are your closets:</h2>
+<% if (@closets.length == 0) %>
+    You have no closets available! <%= link_to 'Create a Closet', new_closet_path %> to get started! 
+<% else %> 
+    <% @closets.each do |closet| %>
+        <%= link_to closet.title, closet_path(closet) %>
+    <% end %>
+<% end %>

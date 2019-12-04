@@ -9,7 +9,14 @@ class ApplicationController < ActionController::Base
         if !logged_in?
             redirect_to login_path
         end
-    end 
+    end
+    
+    def logged_in_user
+        if logged_in?
+            User.find(session[:id])
+        end
+    end
+
 
 
 

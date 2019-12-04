@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <% if logged_in?%>
+      <%= link_to 'Create a Closet', new_closet_path, {class: 'item'} %>
+      <%= link_to 'Logout', logout_path, {class: 'item'} %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

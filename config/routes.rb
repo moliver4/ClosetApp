@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :edit, :update]
-  resources :closet, only: [:index, :show, :new, :create, :delete]
+  resources :closets, only: [:index, :show, :new, :create, :delete]
   resources :items, only: [:show, :new, :create, :edit, :update, :delete]
   resources :categories, only: [:show, :new, :create, :delete]
-  
-  get '/signup', to: "users#new"
-  post '/signup', to: "users#create"
+
+
+  post '/signup', to: "users#new", as: 'signup'
 
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#verify'
 
-  post '/logout', to: 'sessions#logout'
+  get '/logout', to: 'sessions#logout', as: 'logout'
 
   
 

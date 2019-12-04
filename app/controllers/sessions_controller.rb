@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
     def login
         # nothing to do here!
     end
- 
 
     def verify
         # byebug
