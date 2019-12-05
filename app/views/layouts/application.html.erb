@@ -13,7 +13,9 @@
     <% if logged_in?%>
       <%= link_to 'All My Closets', closets_path, {class: 'item'} %>
       <%= link_to 'Create a Closet', new_closet_path, {class: 'item'} %>
+      <%= link_to 'Add an Item', new_item_path, {class: 'item'} %>
       <%= link_to 'Logout', logout_path, {class: 'item'} %>
+      Weather: <%= logged_in_user.weather_description.capitalize%> <%= logged_in_user.current_temp%>(Farhenheit)
     <% end %>
     <%= yield %>
   </body>

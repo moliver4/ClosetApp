@@ -1,3 +1,4 @@
+<h2>Editing <%= @user.name %></h2>
 <%= form_for @user do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -5,9 +6,5 @@
     <%= f.text_field :username %>
     <%= f.label :city %>
     <%= f.text_field :city %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.label :password_confirmation%>
-    <%= f.text_field :password_confirmation%>
     <%= f.submit "Submit" %>
 <% end %>

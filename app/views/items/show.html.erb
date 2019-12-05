@@ -1,5 +1,8 @@
 <h3> <%= @item.name %> </h3>
-
+<% if @item.photo.attached? %>
+    <%= image_tag @item.photo, :class => "style_image" %>
+<% end %>
+<br>
 <%= @item.description %> <br>
 <%= @item.worn_count %> <br>
 <%= @item.condition %> <br>
@@ -10,4 +13,6 @@ Categories:
     <br>
 <% end %>
 
+<%= link_to 'Edit', edit_item_path(@item), method: :get %>
 <%= button_to 'Delete', item_path(@item), method: :delete %>
+

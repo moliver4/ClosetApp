@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  post '/signup', to: "users#new", as: 'signup'
+  get '/login', to: 'sessions#login'
+  post '/login', to: 'sessions#verify'
+  get '/logout', to: 'sessions#logout', as: 'logout'
 
   resources :users, only: [:show, :new, :create, :edit, :update]
   resources :closets, only: [:index, :show, :new, :create, :destroy]
@@ -6,12 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :new, :create, :destroy]
 
 
-  post '/signup', to: "users#new", as: 'signup'
-
-  get '/login', to: 'sessions#login'
-  post '/login', to: 'sessions#verify'
-
-  get '/logout', to: 'sessions#logout', as: 'logout'
+ 
 
   
 

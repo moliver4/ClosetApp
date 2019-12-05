@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :logged_in?
+    helper_method :logged_in?, :logged_in_user
 
     def logged_in?
         !!session[:user_id]
@@ -13,8 +13,9 @@ class ApplicationController < ActionController::Base
     
     def logged_in_user
         if logged_in?
-            User.find(session[:id])
+            User.find(session[:user_id])
         end
     end
 
+    
 end

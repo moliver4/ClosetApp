@@ -14,27 +14,26 @@ class ItemsController < ApplicationController
 
     def create
         @item = Item.new(item_params)
-        byebug
+
         if @item.save
             redirect_to @item
         else
-            puts @item.messages.full_errors
             render :new
         end
-
     end
 
     def edit
         @item = Item.find(params[:id])
+        @category = Category.new
+        @user = User.find(session[:user_id])
+        @closets = @user.closets
     end
 
     def update
-        @item = Item.update(item_params)
-        if @item.save
-            redirect_to item_path(@item)
-        else
-            render :edit
-        end
+        @item = Item.find(params[:id])
+        @item.update(item_params)
+        redirect_to item_path(@item)
+        
     end
 
     def destroy
@@ -45,7 +44,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-        params.require(:item).permit(:name, :description, :size, :worn_count, :condition, :closet_id, category_ids:[])
+        params.require(:item).permit(:name, :description, :size, :worn_count, :condition, :closet_id, :photo, category_ids:[])
     end
 
 end

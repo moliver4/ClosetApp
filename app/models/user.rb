@@ -13,6 +13,28 @@ class User < ApplicationRecord
     validates :city, presence: true
 
 
+ 
+    def current_temp
+        ftemp(get_weather["main"]["temp"]).round(1)
+    end
+
+    def low_temp
+        ftemp(get_weather["main"]["temp_min"]).round(1)
+    end
+    
+    def high_temp
+        ftemp(get_weather["main"]["temp_max"]).round(1)
+    end
+
+    def weather_description
+        get_weather["weather"][0]["description"].capitalize
+    end
+
+    private
+    def ftemp(kelvin)
+        celsius = kelvin - 273.15
+        fahrenheit = celsius * (9/5) +32
+    end
     def get_weather
         @city = self.city
         url = URI("https://community-open-weather-map.p.rapidapi.com/weather?units=%2522imperial%2522&q=#{@city}")
@@ -27,28 +49,6 @@ class User < ApplicationRecord
         js= JSON.parse(response.read_body)
         puts js
         js
-    end
-    
-    def current_temp
-        ftemp(get_weather["main"]["temp"])
-    end
-
-    def low_temp
-        ftemp(get_weather["main"]["temp_min"])
-    end
-    
-    def high_temp
-        ftemp(get_weather["main"]["temp_max"])
-    end
-
-    def weather_description
-        get_weather["weather"][0]["description"]
-    end
-
-    private
-    def ftemp(kelvin)
-        celsius = kelvin - 273.15
-        fahrenheit = celsius * (9/5) +32
     end
     
 end
