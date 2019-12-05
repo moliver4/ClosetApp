@@ -11,6 +11,7 @@
 
   <body>
     <% if logged_in?%>
+      <%= link_to 'All My Closets', closets_path, {class: 'item'} %>
       <%= link_to 'Create a Closet', new_closet_path, {class: 'item'} %>
       <%= link_to 'Logout', logout_path, {class: 'item'} %>
     <% end %>

@@ -1,10 +1,14 @@
 <h2>Now Viewing: <%= @closet.title %></h2>
-    <% @closet.categories.each do |cat| %>
-        <%= cat.title %>
-    <% end %>
+    <p>Items: </p>
+    <p><% @closet.items.each do |item| %>
+        <%= link_to item.name, item_path(item) %> <br>
+       <% end %> </p>
 <br>
 
+<p><%= link_to "Add Item", new_item_path %> </p>
 
+<p> <% @categories.each do |category| %> 
+        <%= link_to category.title, category_path(category) %>
+    <% end %></p>
 
-
-<%= link_to "Add Item", new_item_path %>
+<%= button_to 'Delete', closet_path(@closet), method: :delete %> data:{confirm: “Are you sure you want to delete this closet? All the items will be deleted too.”} %>

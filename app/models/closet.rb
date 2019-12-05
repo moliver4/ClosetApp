@@ -3,10 +3,11 @@ class Closet < ApplicationRecord
     has_many :items
     has_many :itemcategories, through: :items
 
-    def all_categories
 
+
+    def all_categories
         items = self.items.all
-        byebug
+  
         categories = items.map do |item|
             item.categories
         end
@@ -17,12 +18,6 @@ class Closet < ApplicationRecord
         all_categories.pluck('title')
     end
 
-    # def all_items
-    #     list = self.all_categories.map do |cat|
-    #         cat.items.all
-    #     end
-    #     list.flatten
-    # end
 
 
 

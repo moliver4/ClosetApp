@@ -16,8 +16,12 @@
     <%= f.select :condition, [ 'New','Good','Fair', 'Old' ], :prompt => 'Select One' %>
     <br>
     Please Select the Closet: <%= f.collection_select :closet_id, @closets, :id, :title %> <br>
+
     Please Select Categories: <%= f.collection_check_boxes :category_ids, Category.all, :id, :title %> <br>
 
+    <%= f.fields_for :category, @category do |categories_fields| %>
+        <%= categories_fields.text_field :title %>
+    <% end %>
     <br>
     <%= f.submit 'Create Item' %>
 <% end %>

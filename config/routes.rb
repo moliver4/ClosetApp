@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :edit, :update]
-  resources :closets, only: [:index, :show, :new, :create, :delete]
-  resources :items, only: [:show, :new, :create, :edit, :update, :delete]
-  resources :categories, only: [:show, :new, :create, :delete]
+  resources :closets, only: [:index, :show, :new, :create, :destroy]
+  resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :categories, only: [:show, :new, :create, :destroy]
 
 
   post '/signup', to: "users#new", as: 'signup'

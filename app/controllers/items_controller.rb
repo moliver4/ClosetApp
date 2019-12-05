@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     end
 
     def new
+        @category = Category.new
         @item = Item.new
         @user = User.find(session[:user_id])
         @closets = @user.closets
@@ -34,6 +35,12 @@ class ItemsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+        @item = Item.find(params[:id])
+        @item.destroy
+        redirect_to closet_path(session[:closet_id])
     end
 
     private

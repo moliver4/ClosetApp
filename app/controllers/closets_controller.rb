@@ -8,6 +8,7 @@ class ClosetsController < ApplicationController
     def show
         @closet = Closet.find(params[:id])
         session[:closet_id] = @closet.id
+        @categories = @closet.all_categories
     end
 
     def new
@@ -25,6 +26,9 @@ class ClosetsController < ApplicationController
 
 
     def destroy
+        @closet = Closet.find(params[:id])
+        @closet.destroy
+        redirect_to closets_path
     end
 
     private
@@ -33,7 +37,7 @@ class ClosetsController < ApplicationController
     end
 
     def closet_params
-        params.require(:closet).permit(:title, :search, :user_id, categories_attributes: [:title] )
+        params.require(:closet).permit(:title, :search, :user_id, :search )
     end
 
     def cp 

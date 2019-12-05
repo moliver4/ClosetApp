@@ -5,8 +5,8 @@ class Category < ApplicationRecord
     validates :title, uniqueness: true
     validates :title, presence: true
 
-    def all_items
-        self.items.all
+    def closet_items(closet_id)
+        self.items.where("closet_id = #{closet_id}")
     end
 
     def most_popular_item
@@ -16,5 +16,4 @@ class Category < ApplicationRecord
     def least_popular_item
         all_items.sort_by{|item| item.worn_count}.first
     end
-
 end
