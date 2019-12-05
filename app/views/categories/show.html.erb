@@ -1,11 +1,39 @@
-<h2><%= @category.title %> </h2>
-<% @items.each do |item| %>
-    <% if item.photo.attached? %>
-        <%= link_to image_tag(item.photo), item_path(item), :class => "style_image" %>
-    <% end %>
-    <%= link_to item.name, item_path(item) %> <br>
-    <%= item.description %> <br>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <h3><%=@closet.title%></h3>
+            <h3><%= @category.title %> </h3>
+        </div> 
+        <div class="container">
+            <% @items.each do |item| %>
+                <% if item.photo.attached? %>
+                    <%= link_to image_tag(item.photo, size: '250x250'), item_path(item), :class => "index_style_image" %>
+                <% end %>
+                <%= link_to item.name, item_path(item) %> <br>
+            <% end %>
+
+        </div>   
+            
+
 <br>
 <%= link_to 'Back to Closet', closet_path(@closet) %>
+</div>
 
+
+<div class="container"> 
+        <div class="row">
+            <div class="col-xs-3">
+                <h3><%=@closet.title%></h3>
+            </div>
+            <div class="container"></div>
+            </p><% @closet.items.each do |item| %>
+                <div class="col-sm-4"> <% if item.photo.attached? %>
+                    <%= link_to image_tag(item.photo, size: '250x250'), item_path(item), :class => "index_style_image" %>
+                <% end %><br>
+                <%= link_to item.name, item_path(item) %> <br>
+                </div>
+            <% end %> 
+            </div>
+        </div>
+    <br>
+    

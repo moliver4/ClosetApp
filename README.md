@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+ruby 2.6.1
+rails ~> 6.0.1
+sqlite3 ~> 1.4
+bcrypt ~> 3.1.7
+bootstrap ~> 4.4.1

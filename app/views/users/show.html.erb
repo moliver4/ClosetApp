@@ -1,0 +1,8 @@
+<div class="container">
+    <div>Name: <%= @user.name %></div>
+    <div>Username: <%= @user.username %></div>
+    <div>City: <%= @user.city %></div>
+    <div>Outside it is: <%= @user.current_temp %>F & <%= @user.weather_description %></div>
+
+    <div><%= link_to "Edit Account", edit_user_path(@user)%></div>
+</div>

@@ -4,21 +4,33 @@
     <title>ClosetApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>My Closet App</title>
   </head>
 
   <body>
+    <nav> 
     <% if logged_in?%>
+      <a class="navbar-brand" href="/closets"><%= image_tag(asset_path('logo.png'), size: '100x100') %> </a>
       <%= link_to 'All My Closets', closets_path, {class: 'item'} %>
       <%= link_to 'Create a Closet', new_closet_path, {class: 'item'} %>
       <%= link_to 'Add an Item', new_item_path, {class: 'item'} %>
       <%= link_to 'Add a Category', new_category_path, {class: 'item'} %>
+      <%= link_to 'My Account', user_path(logged_in_user), {class: 'item'} %>
 
-      Weather: <%= logged_in_user.weather_description.capitalize%> <%= logged_in_user.current_temp%>
+      Weather: <%= logged_in_user.weather_description.capitalize%> <%= logged_in_user.current_temp%>F
       <%= link_to 'Logout', logout_path, {class: 'item'} %>
+    <% else %>
+      <a class="navbar-brand" href="/"><%= image_tag(asset_path('logo.png'), size: '60x60') %> My Closet App </a>
     <% end %>
+  </nav>
+  <div><% if !logged_in?%>
+    Hi! Please Log In To View Your Closets:
+    <% end %>
+  </div>
     <%= yield %>
+    
   </body>
 </html>

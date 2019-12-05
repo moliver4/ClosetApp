@@ -1,10 +1,10 @@
 <h3> <%= @item.name %> </h3>
 <% if @item.photo.attached? %>
-    <%= image_tag @item.photo, :class => "style_image" %>
+    <%= image_tag @item.photo, :class => "show_style_image" %>
 <% end %>
 <br>
 Description: <%= @item.description %> <br>
-Worn: <%= @item.worn_count %> <%= button_to 'Add Worn', worn_path(@item), method: :put %><br> 
+Worn: <%= @item.worn_count %> <%= button_to 'Worn', worn_path(@item), method: :put %><br> 
 Condition: <%= @item.condition %> <br>
 
 Categories:
