@@ -1,6 +1,11 @@
 <h2><%= @category.title %> </h2>
 <% @items.each do |item| %>
+    <% if item.photo.attached? %>
+        <%= link_to image_tag(item.photo), item_path(item), :class => "style_image" %>
+    <% end %>
     <%= link_to item.name, item_path(item) %> <br>
     <%= item.description %> <br>
 <% end %>
+<br>
+<%= link_to 'Back to Closet', closet_path(@closet) %>
 

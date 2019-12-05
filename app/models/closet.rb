@@ -7,7 +7,6 @@ class Closet < ApplicationRecord
 
     def all_categories
         items = self.items.all
-  
         categories = items.map do |item|
             item.categories
         end

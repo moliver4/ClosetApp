@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
+        @closet = Closet.find(session[:closet_id])
     end
 
     def new
@@ -34,6 +35,13 @@ class ItemsController < ApplicationController
         @item.update(item_params)
         redirect_to item_path(@item)
         
+    end
+
+    def worn
+ 
+        @item = Item.find(params[:id])
+        @item.increment!(:worn_count)
+        redirect_to item_path(@item)
     end
 
     def destroy

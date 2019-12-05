@@ -3,16 +3,19 @@
     <%= image_tag @item.photo, :class => "style_image" %>
 <% end %>
 <br>
-<%= @item.description %> <br>
-<%= @item.worn_count %> <br>
-<%= @item.condition %> <br>
+Description: <%= @item.description %> <br>
+Worn: <%= @item.worn_count %> <%= button_to 'Add Worn', worn_path(@item), method: :put %><br> 
+Condition: <%= @item.condition %> <br>
 
 Categories:
-<% @item.categories do |cat| %>
+<% @item.categories.each do |cat| %>
+<br>
     <%= link_to cat.title, category_path(cat)%>
     <br>
 <% end %>
 
+<br>
 <%= link_to 'Edit', edit_item_path(@item), method: :get %>
 <%= button_to 'Delete', item_path(@item), method: :delete %>
+<%= link_to 'Back to Closet', closet_path(@closet) %>
 

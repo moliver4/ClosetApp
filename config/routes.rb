@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :edit, :update]
   resources :closets, only: [:index, :show, :new, :create, :destroy]
+  put '/items/:id/worn', to: 'items#worn', as: 'worn'
   resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :categories, only: [:show, :new, :create, :destroy]
 

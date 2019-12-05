@@ -16,7 +16,8 @@ class ClosetsController < ApplicationController
     end
 
     def create
-        @closet = Closet.new(cp)
+        @closet = Closet.new(closet_params)
+        @closet.user = find_user
         if @closet.save 
             redirect_to closet_path(@closet)
         else
@@ -37,11 +38,11 @@ class ClosetsController < ApplicationController
     end
 
     def closet_params
-        params.require(:closet).permit(:title, :search, :user_id, :search )
+        params.require(:closet).permit(:title, :user_id)
     end
 
-    def cp 
-        @user = find_user
-        closet_params[:user_id] = @user.id 
-    end
+    # def cp 
+    #     @user = find_user
+    #     closet_params[:user_id] = @user.id 
+    # end
 end
