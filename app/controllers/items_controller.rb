@@ -44,6 +44,20 @@ class ItemsController < ApplicationController
         redirect_to item_path(@item)
     end
 
+    def closet_worn
+        @item = Item.find(params[:id])
+        @item.increment!(:worn_count)
+        @closet = Closet.find(session[:closet_id])
+        redirect_to closet_path(@closet)
+    end
+
+    def category_worn
+        @item = Item.find(params[:id])
+        @item.increment!(:worn_count)
+        @category = Category.find(session[:category_id])
+        redirect_to category_path(@category)
+    end
+
     def destroy
         @item = Item.find(params[:id])
         @item.destroy

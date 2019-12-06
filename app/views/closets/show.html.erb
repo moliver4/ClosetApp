@@ -19,6 +19,7 @@
                 <%= link_to image_tag(item.photo, size: '250x250'), item_path(item), :html =>{:class => "index_style_image"}%>
             <% end %><br>
             <%= button_to item.real_name, item_path(item), method: :get, class: "btn btn-info" %>
+            <%= button_to 'Mark as Worn', closet_worn_path(item), method: :put, class: "btn-xs btn-outline-info" %>  
            <br>
             </div>
         <% end %> 
