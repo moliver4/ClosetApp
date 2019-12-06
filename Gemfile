@@ -28,6 +28,7 @@ gem 'image_processing', '~> 1.2'
 
 #bootstrap for rails
 gem 'bootstrap', '~> 4.4.1'
+gem "bootstrap_form", "~> 4.0"
 gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb

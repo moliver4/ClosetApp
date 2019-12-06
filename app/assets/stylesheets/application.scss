@@ -1,2 +1,47 @@
 
  @import "bootstrap";
+
+topnav {
+    background-color: rgb(146, 218, 215);
+}
+body {
+    color: black;
+    background-color: #F9F3E1;
+} 
+.topnav {
+    //background-color: #333;
+    background-color: #A5ACAF;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    //background-color: #ddd;
+    background-color: #66C010;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    //background-color: #4CAF50;
+    background-color: #66C010;
+    color: white;
+  }
+  body {
+    color: #f2f2f2;
+    background-color: #baa1bb;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0px;
+  }

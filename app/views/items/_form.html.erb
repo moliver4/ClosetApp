@@ -1,5 +1,5 @@
 
-<%= form_for @item do |f| %>
+<%= form_for @item, :html => {:class => "form-horizontal center"} do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
@@ -20,7 +20,8 @@
     Please Select Categories: <%= f.collection_check_boxes :category_ids, Category.all, :id, :title %> <br>
     <br>
     <%= f.label 'Photo' %>
-    <%= f.file_field :photo %> <br>
-
+    <%= f.file_field :photo %> 
+    <br>
+    <br>
     <%= f.submit 'Submit Item' %>
 <% end %>

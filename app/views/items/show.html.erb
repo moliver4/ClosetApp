@@ -1,21 +1,22 @@
-<h3> <%= @item.name %> </h3>
-<% if @item.photo.attached? %>
-    <%= image_tag @item.photo, :class => "show_style_image" %>
-<% end %>
-<br>
-Description: <%= @item.description %> <br>
-Worn: <%= @item.worn_count %> <%= button_to 'Worn', worn_path(@item), method: :put %><br> 
-Condition: <%= @item.condition %> <br>
+<div class="container text-center">
+    <h3> <%= @item.name %> </h3>
+        <% if @item.photo.attached? %>
+            <%= image_tag @item.photo, :class => "show_style_image" %>
+        <% end %>
+        <br>
+        <p>Description: <%= @item.description %> </p>
+        <p>Worn: <%= @item.worn_count %> <%= button_to 'Worn', worn_path(@item), method: :put %></p>
+        <p> Condition: <%= @item.condition %></p>
 
-Categories:
-<% @item.categories.each do |cat| %>
-<br>
-    <%= link_to cat.title, category_path(cat)%>
+        <div class='row'>
+                <p> Categories: <% @item.categories.each do |category| %> 
+                    <%= button_to category.title, category_path(category), method: :get %>
+                <% end %></p>
+        </div>
+
     <br>
-<% end %>
-
-<br>
-<%= link_to 'Edit', edit_item_path(@item), method: :get %>
-<%= button_to 'Delete', item_path(@item), method: :delete %>
-<%= link_to 'Back to Closet', closet_path(@closet) %>
+    <%= button_to 'Edit', edit_item_path(@item), method: :get %>
+    <%= button_to 'Delete', item_path(@item), method: :delete %>
+    <%= button_to 'Back to Closet', closet_path(@closet), method: :get %>
+</div>
 

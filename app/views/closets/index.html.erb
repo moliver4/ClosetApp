@@ -1,11 +1,17 @@
-<h2> Welcome <%= @user.name %>! Here are your closets:</h2>
-<body> 
-<% if (@closets.length == 0) %>
-    You have no closets available! <%= link_to 'Create a Closet', new_closet_path %> to get started! 
-<% else %> 
-
-    <% @closets.each do |closet| %>
-        <%= link_to closet.title, closet_path(closet) %>
+<div class="container text-center">
+    <h3> Welcome <%= @user.name %>! Here are your closets:</h3>
+        <div> 
+        <% if (@closets.length == 0) %>
+            <p>You have no closets available! <%= link_to 'Create a Closet', new_closet_path %> to get started! </p>
+        <% else %> 
+            <div class='container'> 
+            <% @closets.each do |closet| %>
+                <a class="btn btn-outline-primary" href="/closets/<%=closet.id%>" role="button">
+                    <%= closet.title %>
+                </a> 
+            <% end %>
+        </div>
     <% end %>
-<% end %>
-</body>
+    </div>
+</div>
+

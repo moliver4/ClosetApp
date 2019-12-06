@@ -1,3 +1,4 @@
+<div class="container text-center">
 <h2> Create a New Category</h2>
 <% if @category.errors.any? %>
   <div id="error_explanation">
@@ -18,3 +19,4 @@
     Category Name: <%= f.text_field :title %>
     <%= f.submit "Submit Category" %>
 <% end %>
+</div>
