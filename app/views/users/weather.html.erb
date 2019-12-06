@@ -1,0 +1,13 @@
+<div class="container text-center">
+        <br>
+        <br>
+        <p>Today, in <%= @user.city %>:</p>
+        <div>Outside it is currently: <%= @user.current_temp %>F with <%= @user.weather_description %></div>
+        <div>Today's High: <%=@user.high_temp%>F</div>
+        <div>Today's Low: <%=@user.low_temp%>F</div>
+        <div>Humidity: <%=@user.humidity%>%</div>
+        
+        <br>
+    
+        <div><%= button_to "Edit Account", edit_user_path(@user), method: :get, class: "btn btn-info" %></div>
+</div>

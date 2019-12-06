@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#verify'
   get '/logout', to: 'sessions#logout', as: 'logout'
 
+  get '/users/:id/weather', to: 'users#weather', as: 'weather'
   resources :users, only: [:show, :new, :create, :edit, :update]
   resources :closets, only: [:index, :show, :new, :create, :destroy]
   put '/items/:id/worn', to: 'items#worn', as: 'worn'

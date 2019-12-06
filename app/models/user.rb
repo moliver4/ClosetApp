@@ -31,6 +31,11 @@ class User < ApplicationRecord
         new = array.map {|word| word.capitalize}.join(" ")
         new
     end
+    def humidity
+        get_weather["main"]["humidity"]
+    end
+
+    
 
 
     private
@@ -38,6 +43,7 @@ class User < ApplicationRecord
         celsius = kelvin - 273.15
         fahrenheit = celsius * (9/5) +32
     end
+
     def get_weather
         @city = self.city
         url = URI("https://community-open-weather-map.p.rapidapi.com/weather?units=%2522imperial%2522&q=#{@city}")
@@ -53,7 +59,7 @@ class User < ApplicationRecord
         puts js
         js
     end
-
+    
     def description
         get_weather["weather"][0]["description"]
     end

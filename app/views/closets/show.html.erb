@@ -8,17 +8,18 @@
     <br>
     <div class='row'>
             <p> Categories: <% @categories.each do |category| %> 
-                <%= button_to category.title, category_path(category), method: :get %>
+                <%= button_to category.title, category_path(category), method: :get, class: "btn btn-info" %>
             <% end %></p>
     </div>
     <br>
     <div class="row">
-        <% @closet.items.each do |item| %>
+        <% @items.each do |item| %>
             <div class="col-sm-4"> 
             <% if item.photo.attached? %>
                 <%= link_to image_tag(item.photo, size: '250x250'), item_path(item), :html =>{:class => "index_style_image"}%>
             <% end %><br>
-            <%= link_to item.name.capitalize, item_path(item), method: :get %> <br>
+            <%= button_to item.real_name, item_path(item), method: :get, class: "btn btn-info" %>
+           <br>
             </div>
         <% end %> 
     </div>
@@ -26,9 +27,11 @@
     
     <br>
     <br>
-
-    <div><%= button_to "Add Item", new_item_path, method: :get %> </div><%= button_to 'Delete Closet', closet_path(@closet), method: :delete %> 
+    <div class="button-box col-lg-12">
+            <a href="/items/new" class="btn btn-info" role="button">Add Item</a>
+            <a href="/closets/<%=@closet.id%>" class="btn btn-info" role="button">Delete Closet</a>
+   </div>
 
     <br>
-    
+    <br>
 </div>

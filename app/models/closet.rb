@@ -3,7 +3,10 @@ class Closet < ApplicationRecord
     has_many :items
     has_many :itemcategories, through: :items
 
-
+    def sorted_items
+        my_items = self.items
+        my_items.sort_by{|item| item.worn_count}.reverse!
+    end
 
     def all_categories
         items = self.items.all

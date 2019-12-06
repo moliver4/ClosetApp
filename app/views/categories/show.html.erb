@@ -11,12 +11,12 @@
                 <% if item.photo.attached? %>
                     <%= link_to image_tag(item.photo, size: '250x250'), item_path(item), :class => "index_style_image" %>
                 <% end %><br>
-                <%= link_to item.name.capitalize, item_path(item) %> 
+                <%= link_to item.real_name, item_path(item), class: "btn btn-info" %> 
                 </div>
             <% end %>
     </div>
             
 
 <br>
-<%= button_to 'Back to Closet', closet_path(@closet), method: :get %>
+<%= button_to 'Back to Closet', closet_path(@closet), method: :get, class: "btn btn-info" %>
 </div>

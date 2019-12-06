@@ -1,4 +1,19 @@
 <div class="container text-center">
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h4>
+              Uh oh! 
+            <%= pluralize(@user.errors.count, "error") %>
+            prohibited your Account from being saved:
+          </h4>
+       
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
     <h2>New User Sign Up</h2>
     <%= form_for @user do |f| %>
         <%= f.label :name %>
@@ -11,6 +26,6 @@
         <%= f.password_field :password %>
         <%= f.label :password_confirmation%>
         <%= f.password_field :password_confirmation%>
-        <%= f.submit "Submit" %>
+        <%= f.submit "Submit", class: "btn btn-info"  %>
     <% end %>
 </div>

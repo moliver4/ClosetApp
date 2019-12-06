@@ -8,5 +8,10 @@ class Item < ApplicationRecord
       self.closet.title
     end
 
+    def real_name
+      array = self.name.split(" ")
+      array.map {|word| word.capitalize}.join(" ")
+    end
+
 
 end

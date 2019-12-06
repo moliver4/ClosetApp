@@ -37,7 +37,7 @@ activerecord-reset-pk-sequence
 [OpenWeather API](https://rapidapi.com/community/api/open-weather-map/endpoints)
 
 ## Project Status
-This was a project for my second module of my bootcamp. I am still learning CSS styling. I hope to be able to continue to build and refine it in the future. Please feel free to contribute/provide feedback! 
+This project is for the second module of my bootcamp. I am still learning CSS styling. I hope to be able to continue to build and refine it in the future. Please feel free to contribute/provide feedback! 
 
 ## Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change. Thanks for your interest!

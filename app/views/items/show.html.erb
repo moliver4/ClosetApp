@@ -1,26 +1,31 @@
 <div class="container text-center">
 
-    <h3> <%= @item.name %> </h3>
+    <h3> <%= @item.real_name %> </h3>
         <p><%= link_to @item.closet.title, closet_path(@closet)%></p>
         <% if @item.photo.attached? %>
                 <%= image_tag(@item.photo,:size => "300x300") %> 
         <% end %>
         <br>
-        <p>Description: <%= @item.description %> </p>
-        <div>Worn: <%= @item.worn_count %> <%= button_to 'Worn', worn_path(@item), method: :put %></div>
+        <p>Description: <%= @item.description.capitalize %> </p>
+        <div>Worn: <%= @item.worn_count %> <%= button_to 'Mark as Worn', worn_path(@item), method: :put, class: "btn btn-info" %></div>
         <br>
         <p> Condition: <%= @item.condition %></p>
-
-        <p> Categories: <% @item.categories.each do |category| %> 
-                <%= button_to category.title, category_path(category), method: :get %>
+        Categories: 
+        <div class="button-box col-lg-12">
+            <% @item.categories.each do |category| %> 
+                <a href="/categories/<%=category.id%>" class="btn btn-info" role="button"><%=category.title%></a>
             <% end %>
-        </p>
-    
+       
+        </div>
 
     <br>
-    <%= button_to 'Edit', edit_item_path(@item), method: :get %>
-    <%= button_to 'Delete', item_path(@item), method: :delete %>
-    <%= button_to 'Back to Closet', closet_path(@closet), method: :get %>
+    <br>
+    <br>
+    <div class="button-box col-lg-12">
+        <a href="/items/<%=@item.id%>/edit" class="btn btn-info" role="button">Edit Item</a>
+        <a href="/items/<%=@item.id%>/delete" class="btn btn-info" role="button">Delete Item</a>
+        <a href="/closets/<%=@closet.id%>" class="btn btn-info" role="button">Back to Closet</a>
+    </div>
     <br>
     <br>
     <br>

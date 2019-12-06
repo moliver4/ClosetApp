@@ -8,6 +8,7 @@ class ClosetsController < ApplicationController
     def show
         @closet = Closet.find(params[:id])
         session[:closet_id] = @closet.id
+        @items = @closet.sorted_items
         @categories = @closet.all_categories
     end
 
