@@ -18,7 +18,4 @@ class Closet < ApplicationRecord
     end
 
 
-
-
-
 end

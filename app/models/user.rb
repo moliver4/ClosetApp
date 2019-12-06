@@ -27,8 +27,11 @@ class User < ApplicationRecord
     end
 
     def weather_description
-        get_weather["weather"][0]["description"].capitalize
+        array = description.split(" ")
+        new = array.map {|word| word.capitalize}.join(" ")
+        new
     end
+
 
     private
     def ftemp(kelvin)
@@ -49,6 +52,10 @@ class User < ApplicationRecord
         js= JSON.parse(response.read_body)
         puts js
         js
+    end
+
+    def description
+        get_weather["weather"][0]["description"]
     end
     
 end

@@ -1,6 +1,7 @@
 <div class="container text-center">
 
     <h3> <%= @item.name %> </h3>
+        <p><%= link_to @item.closet.title, closet_path(@closet)%></p>
         <% if @item.photo.attached? %>
                 <%= image_tag(@item.photo,:size => "300x300") %> 
         <% end %>
