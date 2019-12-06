@@ -11,28 +11,35 @@
   </head>
 
   <body>
-    <div class="topnav">
-      <% if logged_in?%>
-        <form class="form-inline">
-            <a class="navbar-brand" href="/closets"><%= image_tag(asset_path('logo.png'), size: '60x60') %> </a>
-            <a href="/closets">All Closets</a>
-            <a href="/closets/new">Create A Closet</a>
-            <a href="/items/new"> Add an Item </a>
-            <a href="/category/new"> Add a Category </a>
-            <a href="/users/<%=logged_in_user.id%>">Weather: <%= logged_in_user.weather_description.capitalize%> <%= logged_in_user.current_temp%>F</a>
-            <div style="padding-left: 100px;">
-              <a class="btn btn-outline-success" href="/users/<%=logged_in_user.id%>" role="button">
-                My Acount
-              </a>
-              <a class="btn btn-outline-success" href="/logout" role="button">
-                Logout
-              </a>
-            </div>
-        </form>
+    <div class="navbar flex-row">
+        <div class="container-fluid">
+        <% if logged_in?%>
+          <form class="form-inline">
+              <a class="navbar-brand" href="/closets"><%= image_tag(asset_path('logo.png'), size: '60x60') %> </a>
+              <a href="/closets">All Closets</a>
+              <a href="/closets/new">Create A Closet</a>
+              <a href="/items/new"> Add an Item </a>
+              <a href="/category/new"> Add a Category </a>
+              <a href="/users/<%=logged_in_user.id%>"> My Account</a>
+          </form>
+   
+              <div class="topnav-nav d-flex flex-row">
+                  <a class="btn btn-info" href="/users/<%=logged_in_user.id%>" role="button">
+                    My Acount
+                  </a>
+             
+                  <a class="btn btn-info" href="/logout" role="button">
+                    Logout
+                  </a>
+              </div>
 
-      <% else %>
-        <a class="navbar-brand" href="/"><%= image_tag(asset_path('logo.png'), size: '60x60') %> MyCloset App </a>
-      <% end %>
+
+        
+
+        <% else %>
+          <a class="navbar-brand" href="/"><%= image_tag(asset_path('logo.png'), size: '60x60') %> MyCloset App </a>
+        <% end %>
+      </div>
     </div>
   <div class="container text-center">
     <% if !logged_in?%>
@@ -41,6 +48,11 @@
     
     <% end %>
   </div>
+  <% if logged_in?%>
+    <div class=”pull-right”>
+      <a class="btn btn-info" href="/users/<%=logged_in_user.id%>" id=”icon1″ role="button"><%= logged_in_user.weather_description.capitalize%> <%= logged_in_user.current_temp%>F</a></li>
+    </div>
+    <% end%>
     <%= yield %>
     
   

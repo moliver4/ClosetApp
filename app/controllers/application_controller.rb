@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    before_action :redirect_user
     helper_method :logged_in?, :logged_in_user
 
     def logged_in?

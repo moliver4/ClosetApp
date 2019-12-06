@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_action :redirect_user
     def login
         # nothing to do here!
     end

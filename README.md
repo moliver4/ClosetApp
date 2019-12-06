@@ -32,6 +32,7 @@ sqlite3 ~> 1.4
 bcrypt ~> 3.1.7 
 bootstrap ~> 4.4.1
 bootstrap_form ~> 4.0
+activerecord-reset-pk-sequence
 ```
 [OpenWeather API](https://rapidapi.com/community/api/open-weather-map/endpoints)
 
