@@ -41,8 +41,5 @@ class ClosetsController < ApplicationController
         params.require(:closet).permit(:title, :user_id)
     end
 
-    # def cp 
-    #     @user = find_user
-    #     closet_params[:user_id] = @user.id 
-    # end
+
 end

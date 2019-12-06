@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <title>My Closet App</title>
+    <title>MyCloset App</title>
   </head>
 
   <body>
@@ -15,7 +15,7 @@
       <% if logged_in?%>
         <form class="form-inline">
             <a class="navbar-brand" href="/closets"><%= image_tag(asset_path('logo.png'), size: '60x60') %> </a>
-            <a class="active" href="/closets">All Closets</a>
+            <a href="/closets">All Closets</a>
             <a href="/closets/new">Create A Closet</a>
             <a href="/items/new"> Add an Item </a>
             <a href="/category/new"> Add a Category </a>
@@ -31,15 +31,28 @@
         </form>
 
       <% else %>
-        <a class="navbar-brand" href="/"><%= image_tag(asset_path('logo.png'), size: '60x60') %> My Closet App </a>
+        <a class="navbar-brand" href="/"><%= image_tag(asset_path('logo.png'), size: '60x60') %> MyCloset App </a>
       <% end %>
     </div>
-  <div>
+  <div class="container text-center">
     <% if !logged_in?%>
-    Hi! Please Log In To View Your Closets:
+    
+      <p>Hi! Please Log In To View Your Closets:</p>
+    
     <% end %>
   </div>
     <%= yield %>
     
+  
+  
+    <footer class="page-footer font-small blue fixed-bottom">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright: HiHi!
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
   </body>
+  
 </html>

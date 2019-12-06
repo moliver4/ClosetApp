@@ -1,10 +1,12 @@
-<%= flash[:message] %>
-<%= form_for :auth do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %>
-<%= f.label :password %>
-<%= f.password_field :password %><br>
-<%= f.submit "Login" %>
-<% end %>
-<br>
-<%= button_to "Sign Up", signup_path%>
+<div class="container text-center">
+    <%= flash[:message] %>
+    <%= form_for :auth do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+    <%= f.submit "Login" %>
+    <% end %>
+    <br>
+    <%= button_to "Sign Up", signup_path%>
+</div>
