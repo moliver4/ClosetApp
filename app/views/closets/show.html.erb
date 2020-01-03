@@ -30,7 +30,7 @@
     <br>
     <div class="button-box col-lg-12">
             <a href="/items/new" class="btn btn-info" role="button">Add Item</a>
-            <a href="/closets/<%=@closet.id%>" class="btn btn-info" role="button">Delete Closet</a>
+            <%= button_to 'Delete Closet', closet_path(@closet), method: :delete, class: "btn btn-info" %>
    </div>
 
     <br>

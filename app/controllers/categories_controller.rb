@@ -3,7 +3,9 @@ class CategoriesController < ApplicationController
 
     def show
         @category = Category.find(params[:id])
+
         session[:category_id] = @category.id
+        
         @closet_id = session[:closet_id]
         @closet = Closet.find(@closet_id)
         @items = @category.closet_items(@closet_id)

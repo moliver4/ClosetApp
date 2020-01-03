@@ -38,7 +38,6 @@ class ItemsController < ApplicationController
     end
 
     def worn
- 
         @item = Item.find(params[:id])
         @item.increment!(:worn_count)
         redirect_to item_path(@item)

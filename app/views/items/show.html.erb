@@ -7,7 +7,10 @@
         <% end %>
         <br>
         <p>Description: <%= @item.description.capitalize %> </p>
-        <div>Worn: <%= @item.worn_count %> <%= button_to 'Mark as Worn', worn_path(@item), method: :put, class: "btn btn-info" %></div>
+        <div>
+            Worn: <%= @item.worn_count %> 
+            <%= button_to 'Mark as Worn', worn_path(@item), method: :put, class: "btn btn-info" %>
+        </div>
         <br>
         <p> Condition: <%= @item.condition %></p>
         Categories: 
@@ -23,7 +26,7 @@
     <br>
     <div class="button-box col-lg-12">
         <a href="/items/<%=@item.id%>/edit" class="btn btn-info" role="button">Edit Item</a>
-        <a href="/items/<%=@item.id%>/delete" class="btn btn-info" role="button">Delete Item</a>
+        <%= button_to 'Delete Item', item_path(@item), method: :delete, class: "btn btn-info" %>
         <a href="/closets/<%=@closet.id%>" class="btn btn-info" role="button">Back to Closet</a>
     </div>
     <br>

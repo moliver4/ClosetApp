@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :redirect_user, only: [:new, :create, :update, :edit]
+    
     def show
         @user = find_user
     end
