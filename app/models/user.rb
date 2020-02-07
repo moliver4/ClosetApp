@@ -3,6 +3,8 @@ require 'net/http'
 require 'openssl'
 require 'json'
 
+API_KEY = ENV['rapid_api_key']
+
 class User < ApplicationRecord
     has_secure_password
     has_many :closets
@@ -53,7 +55,7 @@ class User < ApplicationRecord
     
         request = Net::HTTP::Get.new(url)
         request["x-rapidapi-host"] = 'community-open-weather-map.p.rapidapi.com'
-        request["x-rapidapi-key"] = 'a07e40bb26mshfa34368e5bd1fa8p1c066ajsn76974752bb3e'
+        request["x-rapidapi-key"] = API_KEY
         response = http.request(request)
         js= JSON.parse(response.read_body)
         puts js
