@@ -24,13 +24,13 @@ rails db:migrate
 This app requires the Open Weather API key. 
 To gain an api key, please sign up [here](https://rapidapi.com/community/api/open-weather-map/endpoints). Use this API key in the users model where the method to fetch the weather data is stored. 
 
-
 ## Usage
 Because this website is not hosted yet,
 to launch the website on your localhost, start the rails server in your command line.
 ```bash
 rails s
 ```
+If figaro gem is showing a reject error, comment it out in the Gemfile and proceed onwards with your own API key. The dependency is not working.
 Sign Up to create a new account and password. This will allow you to now Log In and Create a Closet. Once you Create a Closet, you can then Add a New Item and even upload a photo of that item!
 
 ## Built With 
