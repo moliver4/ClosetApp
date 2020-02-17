@@ -5,6 +5,11 @@ MyCloset is a service that allows a user to sign in and keep track of their clos
 A weather API is also included with the user's city information.(In case it is rainy, then they can view all clothing in the "Rain" category if they need to plan.)
 
 The motivation behind this idea is to reduce waste and unnecessary shopping. Too often, we feel compelled to purchase things online that catch our eye in the moment, but forget we already have something extremely similar sitting in our closet already.
+
+## Demo
+
+![Demo part 1](https://github.com/moliver4/ClosetApp/blob/master/app/assets/images/closetdemo1.gif)
+![Demo part 2](https://github.com/moliver4/ClosetApp/blob/master/app/assets/images/closetdemo2.gif)
  
 
 ## Installation
@@ -15,6 +20,10 @@ After downloading this repo, use the package manager, bundler, to install necess
 bundle install 
 rails db:migrate
 ```
+
+This app requires the Open Weather API key. 
+To gain an api key, please sign up [here](https://rapidapi.com/community/api/open-weather-map/endpoints). Use this API key in the users model where the method to fetch the weather data is stored. 
+
 
 ## Usage
 Because this website is not hosted yet,
